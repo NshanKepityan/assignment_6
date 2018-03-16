@@ -200,6 +200,8 @@ namespace MyDictionary
             {
                 this.data = data;
                 this.key = key;
+                this.left = null;
+                this.right = null;
             }
 
             public static implicit operator KeyValuePair<TKey, TValue>(Node node)
@@ -327,9 +329,10 @@ namespace MyDictionary
         /// the root
         /// </summary>
         private Node root;
-        public AvlDictionary(Node root)
+        public AvlDictionary(TKey key, TValue value)
         {
-            this.root = root;
+            this.root.key = key;
+            this.root.data = value;
         }
             public void Insert(TKey key, TValue data)
             {
